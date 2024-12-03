@@ -1,3 +1,51 @@
-/**
-* Lightbox
-*/
+/* Liste des miniatures alignées verticalement */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  ul img {
+    width: 50px; /* Taille des miniatures */
+    height: 50px;
+    object-fit: cover; /* S'assure que les images ne soient pas déformées */
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  ul img:hover {
+    border-color: white;
+  }
+  
+  /* Lightbox */
+  dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir semi-transparent */
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 50vw;
+    height: 50vh;
+  }
+  
+  dialog img {
+    max-width: 90vw; /* Taille limite de l'image */
+    max-height: 90vh;
+    border-radius: 10px; /* Arrondit légèrement les bords */
+    object-fit: contain; /* Conserve les proportions */
+  }
+  
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8); /* Fond noir de l'écran */
+  }
+  
